@@ -112,3 +112,8 @@ save/
 
 # .DS_Store
 .DS_Store
+
+# ignore config 
+envirnment.yml
+Guideline.pdf
+.idea
