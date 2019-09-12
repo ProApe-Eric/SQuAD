@@ -14,6 +14,6 @@ dependencies:
   - tensorboardX
   - tqdm
   - urllib3
-  - pytorch=1.0.0
+  - pytorch
   - pip:
-    - torch==1.0.0
+    - torch
