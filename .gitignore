@@ -116,4 +116,4 @@ save/
 # ignore config 
 envirnment.yml
 Guideline.pdf
-.idea
+.idea/
