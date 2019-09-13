@@ -1,5 +1,7 @@
 """Train a model on SQuAD.
 
+Train on GPU: 1. model 2. variable are on the GPU
+
 Author:
     Chris Chute (chute@stanford.edu)
 """

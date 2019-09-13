@@ -205,10 +205,15 @@ def add_common_args(parser):
 
 def add_train_test_args(parser):
     """Add arguments common to train.py and test.py"""
+    # parser.add_argument('--name',
+    #                     '-n',
+    #                     type=str,
+    #                     required=True,
+    #                     help='Name to identify training or test run.')
     parser.add_argument('--name',
                         '-n',
                         type=str,
-                        required=True,
+                        default='baseline',
                         help='Name to identify training or test run.')
     parser.add_argument('--max_ans_len',
                         type=int,
