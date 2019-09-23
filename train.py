@@ -15,6 +15,8 @@ import torch.optim as optim
 import torch.optim.lr_scheduler as sched
 import torch.utils.data as data
 import util
+import os
+import pickle
 
 from args import get_train_args
 from collections import OrderedDict
@@ -77,17 +79,22 @@ def main(args):
     log.info('Building dataset...')
     train_dataset = SQuAD(args.train_record_file, args.use_squad_v2)
     train_loader = data.DataLoader(train_dataset,
-                                   batch_size=args.batch_size,
-                                   shuffle=True,
-                                   num_workers=args.num_workers,
-                                   collate_fn=collate_fn)
+                                batch_size=args.batch_size,
+                                shuffle=True,
+                                num_workers=args.num_workers,
+                                collate_fn=collate_fn)
     dev_dataset = SQuAD(args.dev_record_file, args.use_squad_v2)
     dev_loader = data.DataLoader(dev_dataset,
-                                 batch_size=args.batch_size,
-                                 shuffle=False,
-                                 num_workers=args.num_workers,
-                                 collate_fn=collate_fn)
+                                batch_size=args.batch_size,
+                                shuffle=False,
+                                num_workers=args.num_workers,
+                                collate_fn=collate_fn)
 
+    if torch.cuda.is_available():
+        print('Running on GPU')
+    else:
+        print('Running on CPU')
+        
     # Train
     log.info('Training...')
     steps_till_eval = args.eval_steps
