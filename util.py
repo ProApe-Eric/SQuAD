@@ -660,7 +660,8 @@ def eval_class_dicts(gold_dict, pred_dict):
         total += 1
         curr_avna = None
         ground_truths = gold_dict[key]['answers']
-        question_type = gold_dict[key]['question_type']
+        # question_type = gold_dict[key]['question_type']
+        question_type = 'all'
         prediction = value['has_answer']
 
         if question_type not in by_type:
@@ -706,7 +707,8 @@ def eval_dicts(gold_dict, pred_dict, no_answer):
         total += 1
         curr_avna = None
         ground_truths = gold_dict[key]['answers']
-        question_type = gold_dict[key]['question_type']
+        # question_type = gold_dict[key]['question_type']
+        question_type = 'all'
         prediction = value
 
         curr_em = metric_max_over_ground_truths(compute_em, prediction, ground_truths)
